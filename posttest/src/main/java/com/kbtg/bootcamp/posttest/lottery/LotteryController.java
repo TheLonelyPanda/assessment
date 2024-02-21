@@ -14,6 +14,10 @@ public class LotteryController {
     @Autowired
     private ILotteryService lotteryService;
 
+    public LotteryController(ILotteryService lotteryService) {
+        this.lotteryService = lotteryService;
+    }
+
     @GetMapping("")
     public ResponseEntity<LotteryListResponse> getLotteries() {
         LotteryListResponse lotteryInStock = lotteryService.getLotteryInStock();

@@ -10,6 +10,5 @@ import java.util.Optional;
 @Repository
 public interface LotteryRepository extends JpaRepository<Lottery, Integer> {
     List<Lottery> findByAmountGreaterThan(int amount);
-
     Optional<Lottery> findByTicketAndAmountGreaterThan(String ticket, int amount);
 }

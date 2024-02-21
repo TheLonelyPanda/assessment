@@ -83,7 +83,7 @@ public class UserService implements IUserService {
         Optional<UserTicket> userTicketByQuery = userRepository.findByTicketIdAndUserId(ticketId,userId);
         if (userTicketByQuery.isEmpty()) {
             throw new StatusNotFoundTicketException(
-                    "Lottery not found");
+                    "Lottery number "+ ticketId +" in user "+userId+" not found");
         }else{
             UserTicket userTicket = userTicketByQuery.get();
             userRepository.delete(userTicket);

@@ -1,8 +1,6 @@
 package com.kbtg.bootcamp.posttest.lottery;
 
-
 public class LotteryResponse {
-
     private String ticket;
 
     public String getTicket() {

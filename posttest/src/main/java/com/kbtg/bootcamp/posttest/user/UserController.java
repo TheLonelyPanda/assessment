@@ -14,6 +14,10 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    public UserController(IUserService userService) {
+        this.userService = userService;
+    }
+
     @PostMapping("/{userId}/lotteries/{ticketId}")
     public ResponseEntity<UserTicketResponse> buyLottery(@Valid UserTicketRequest userTicketRequest) {
         UserTicketResponse response = userService.addLotteryInUserTicket(userTicketRequest.getUserId(),userTicketRequest.getTicketId());

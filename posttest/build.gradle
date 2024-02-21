@@ -33,7 +33,20 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.register('integrationTest', Test) {
+	// to prevent Mockito's inline mock maker fail on container
+	jvmArgs('-Djdk.attach.allowAttachSelf=true', '-XX:+StartAttachListener')
+
+	description = 'Runs integration tests.'
+	group = 'verification'
+	useJUnitPlatform()
+	filter {
+		include '**/*Test.*'
+	}
 }
 
 tasks.named('test') {

@@ -5,10 +5,10 @@ import jakarta.validation.constraints.PositiveOrZero;
 
 public class UserTicketRequest {
 
-    @Pattern(regexp="[\\d]{10}", message="User should contain number ten digits!")
+    @Pattern(regexp="[\\d]{10}", message="User should contain number 10 digits")
     String userId;
 
-    @Pattern(regexp="[\\d]{6}", message="User should contain number six digits!")
+    @Pattern(regexp="[\\d]{6}", message="Ticket should contain number 6 digits")
     String ticketId;
 
     public String getUserId() {

@@ -3,20 +3,20 @@ package com.kbtg.bootcamp.posttest.lottery;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
-import jakarta.validation.constraints.Size;
 
 public class LotteryCreateRequest {
-    @NotNull(message="Ticket should contain number six digits")
-    @Pattern(regexp="[\\d]{6}", message="Ticket should contain number six digits")
+    @NotNull(message="Ticket should contain number 6 digits")
+    @Pattern(regexp="[\\d]{6}", message="Ticket should contain number 6 digits")
     String ticket;
 
     @NotNull(message = "Price should positive or Zero")
     @PositiveOrZero(message = "Price should positive or Zero")
-    int price;
+    Integer price;
 
-    @NotNull(message = "Price should positive or Zero")
+
+    @NotNull(message = "Amount should positive or Zero")
     @PositiveOrZero(message = "Amount should positive or Zero")
-    int amount;
+    Integer amount;
 
     public String getTicket() {
         return ticket;
@@ -26,19 +26,19 @@ public class LotteryCreateRequest {
         this.ticket = ticket;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 }

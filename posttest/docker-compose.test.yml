@@ -1,0 +1,15 @@
+#file: noinspection YAMLSchemaValidation
+version: '3.8'
+
+networks:
+  posttest-run-test:
+
+services:
+  it_test:
+    image: amazoncorretto:17.0.9-alpine3.18
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - posttest-run-test
+    command: ["./gradlew","clean","integrationTest"]

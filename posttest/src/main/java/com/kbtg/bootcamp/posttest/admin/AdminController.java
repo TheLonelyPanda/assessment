@@ -1,5 +1,6 @@
 package com.kbtg.bootcamp.posttest.admin;
 
+import com.kbtg.bootcamp.posttest.admin.impl.AdminService;
 import com.kbtg.bootcamp.posttest.lottery.LotteryCreateRequest;
 import com.kbtg.bootcamp.posttest.lottery.LotteryResponse;
 import jakarta.validation.Valid;
@@ -17,6 +18,10 @@ public class AdminController {
 
     @Autowired
     private IAdminService adminService;
+
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
+    }
 
     @PostMapping("/lotteries")
     public ResponseEntity<LotteryResponse> createLottery(@Valid @RequestBody LotteryCreateRequest lotteryRequest) {

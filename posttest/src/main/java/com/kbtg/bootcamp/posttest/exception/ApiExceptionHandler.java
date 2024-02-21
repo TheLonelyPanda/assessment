@@ -1,17 +1,13 @@
 package com.kbtg.bootcamp.posttest.exception;
 
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
+import org.springframework.web.client.HttpServerErrorException;
 
 import java.time.ZonedDateTime;
 import java.util.HashMap;
@@ -38,7 +34,7 @@ public class ApiExceptionHandler {
     public ResponseEntity<Object> handleValidationExceptions(HttpMessageNotReadableException e) {
 
         ApiErrorResponse errorResponse = new ApiErrorResponse(
-                "Request wrong", HttpStatus.BAD_REQUEST, ZonedDateTime.now()
+                "Value should number", HttpStatus.BAD_REQUEST, ZonedDateTime.now()
         );
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
@@ -52,5 +48,6 @@ public class ApiExceptionHandler {
 
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
+
 
 }

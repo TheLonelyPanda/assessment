@@ -16,8 +16,10 @@ services:
       - db
     networks:
       - posttest-run
-    env_file:
-      - .env
+    environment:
+      SPRING_DATASOURCE_URL: ${DATABASE_URL}
+      SPRING_DATASOURCE_USERNAME: ${DATABASE_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DATABASE_PASS}
 
   db:
     image: postgres:16.0
